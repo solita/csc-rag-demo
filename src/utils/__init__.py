@@ -1,0 +1,1 @@
+from .documents import get_documents
