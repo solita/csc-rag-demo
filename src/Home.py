@@ -100,7 +100,7 @@ def init():
             OPENAI_KEY,
             OPENAI_VERSION,
         )
-        get_chroma_client("4.225.30.255", 80)
+        get_chroma_client("./db")
         get_collection(COLLECTION_NAME)
         add_documents("./data/data.parquet.gzip")
     except Exception as ex:
@@ -147,5 +147,5 @@ def app():
         st.session_state.messages.append({"role": "assistant", "content": msg})
         st.chat_message("assistant").write(msg)
 
-# init()
-# app()
+init()
+app()

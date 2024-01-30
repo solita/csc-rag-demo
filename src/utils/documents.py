@@ -6,7 +6,9 @@ def get_documents(path):
 
     if os.path.exists(path):
         i = 0
-        df = pd.read_parquet(path).sample(n=100).reset_index(drop=True)
+        df = pd.read_parquet(path)
+        df = df.loc[df["organizer_name"] == "Helsingin yliopisto"]
+        df = df.sample(n=300).reset_index(drop=True)
         
         for row in df.to_dict("records"):
             code = row["code"]
